@@ -1,1 +1,0 @@
-document.getElementById("p123").innerHTML = new Date();
