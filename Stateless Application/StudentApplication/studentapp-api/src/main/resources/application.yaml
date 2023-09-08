@@ -1,0 +1,45 @@
+logging:
+  level:
+    sql: debug
+    '[com.example.demo]': debug
+  pattern:
+    level: "%5p ${HOSTNAME}"
+#    console:
+  file:
+    name: target/student.log
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: ${student.db.url}
+    username: ${student.db.username}
+    password: ${student.db.password}
+  cache:
+    type: caffeine
+
+#  security:
+#    user:
+#      name: test
+#      password: test
+#      role: test
+
+server:
+  port: 9080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+spring.profiles.include: dev
+
+

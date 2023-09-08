@@ -1,0 +1,6 @@
+student:
+  db:
+    url: jdbc:h2:mem:studentdb
+    username: sa
+    password:
+    like.operator: '%'

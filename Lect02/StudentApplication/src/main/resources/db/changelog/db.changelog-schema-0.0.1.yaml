@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: schema-0.0.1
+      author: student team
+      changes:
+        - createTable:
+            tableName: student
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+              - column:
+                  name: age
+                  type: int
+        - addPrimaryKey:
+            tableName: student
+            columnNames: id
+            constraintName: student_pk
+        - createIndex:
+            tableName: student
+            indexName: student_ix_01
+            columns:
+              - column:
+                  name: name

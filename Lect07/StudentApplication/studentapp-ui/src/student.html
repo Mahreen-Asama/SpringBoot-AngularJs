@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+    <title>Student App</title>
+</head>
+
+<body ng-app="student-ui">
+<div class="container container-fluid" ng-controller="StudentController as $ctrl">
+    <div class="row">
+        <div class="col-sm-2">
+            <h1>Students</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10">
+            <input type="text" id="name" name="name" class="form-control" ng-model="$ctrl.name"/>    <!--binded 'name' with model through ng-model-->
+        </div>
+        <div class="col-sm-2">
+            <input type="button" id="search" name="search" value="Search" class="btn btn-primary" ng-click="$ctrl.search()">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                </tr>
+                </thead>
+                <tbody ng-if="$ctrl.display">
+                <!--traversing the 'student' array declared in ctrl, double colon(::) here means one way binding bcz here we want only to fetch data and display
+                 but if data changes on backed, it should not change at backed, so this is one way binding, bcz tables are just readonly-->
+                <tr ng-repeat="item in ::$ctrl.student track by $index">
+                    <td>{{::item.id}}</td>
+                    <td>{{::item.name}}</td>
+                    <td>{{::item.age}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+
+<script lang="javascript" src="lib/jquery/dist/jquery.min.js"></script>
+<script lang="javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script lang="javascript" src="lib/angular/angular.min.js"></script>
+<script lang="javascript" src="lib/angular-resource/angular-resource.min.js"></script>
+<script lang="javascript" src="js/student.js"></script>
+
+</html>
+
