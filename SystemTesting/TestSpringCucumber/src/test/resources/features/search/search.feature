@@ -1,5 +1,4 @@
 Feature: Web Search
-
   Scenario: Simple Google Search
     Given user visits google home page
     When user enters "panda" into the search input
